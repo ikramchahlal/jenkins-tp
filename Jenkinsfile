@@ -1,45 +1,30 @@
 pipeline {
     agent any
-
+    
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/LamyaeHamdaoui/hello.git'
+                git url: 'https://github.com/ikramchahlal/jenkins-tp', branch: 'main'
             }
         }
-
-        stage('Compile HelloWorld') {
+        
+        stage('Compiler et exécuter HelloWorld') {
             steps {
                 bat 'javac HelloWorld.java'
-            }
-        }
-
-        stage('Run HelloWorld') {
-            steps {
                 bat 'java HelloWorld'
             }
         }
-
-        stage('Compile Merci') {
+        
+        stage('Compiler et exécuter Merci') {
             steps {
                 bat 'javac Merci.java'
-            }
-        }
-
-        stage('Run Merci') {
-            steps {
                 bat 'java Merci'
             }
         }
-
-        stage('Compile DeRien') {
+        
+        stage('Compiler et exécuter DeRien') {
             steps {
                 bat 'javac DeRien.java'
-            }
-        }
-
-        stage('Run DeRien') {
-            steps {
                 bat 'java DeRien'
             }
         }
